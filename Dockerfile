@@ -1,5 +1,6 @@
 FROM php:8.2-fpm
 
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -8,7 +9,10 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
-    libpq-dev
+    libpq-dev \
+    nodejs
+
+RUN npm install -g pnpm
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
