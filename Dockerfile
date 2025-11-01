@@ -20,7 +20,6 @@ WORKDIR /var/www
 COPY . /var/www/
 
 RUN composer install --no-interaction --no-dev --optimize-autoloader
-RUN php artisan key:generate --force
 
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
