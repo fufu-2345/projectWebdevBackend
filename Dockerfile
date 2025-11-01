@@ -25,12 +25,4 @@ EXPOSE 80
 COPY start.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/start.sh
 
-CMD ["start.sh"]
-    php artisan view:cache
-
-# Expose port 8000
-EXPOSE 8000
-
-# Start Laravel server
-CMD php artisan migrate --force && \
-    php artisan serve --host=0.0.0.0 --port=$PORT
+CMD ["/usr/local/bin/start.sh"]
